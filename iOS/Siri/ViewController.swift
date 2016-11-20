@@ -70,6 +70,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, CLLocationMa
                 self.microphoneButton.isEnabled = isButtonEnabled
             }
         }
+        self.createTrip()
 //        self.startTimer()
 
 	}
@@ -85,7 +86,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, CLLocationMa
         }
     }
     
-    func longPullingCallback() {
+    func createTrip() {
         locationManager.startUpdatingLocation()
         if let coordinates = self.coordinations {
             let lat = "\(coordinates.latitude)"
@@ -94,11 +95,35 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, CLLocationMa
             print(requestURL)
             Alamofire.request(requestURL).responseJSON { response in
                 if let JSON = response.result.value {
-                    DispatchQueue.main.async {
-                        self.tellPleaseText(text: "Все отлично")
-                        self.message = ""
-                        self.endTimer()
-                        print("\(JSON)")
+                    print(JSON)
+//                    DispatchQueue.main.async {
+//                        self.tellPleaseText(text: "Все отлично")
+//                        self.message = ""
+//                        self.endTimer()
+//                        print("\(JSON)")
+//                    }
+                }
+            }
+        }
+    }
+    
+    func longPullingCallback() {
+        locationManager.startUpdatingLocation()
+        if let coordinates = self.coordinations {
+            let lat = "\(coordinates.latitude)"
+            let lon = "\(coordinates.longitude)"
+            let requestURL = "http://192.168.1.44:51580/api/bus/get_distance/1/" + lat + "/" + lon
+            print(requestURL)
+            Alamofire.request(requestURL).responseJSON { response in
+                if let distance = response.result.value as? Double {
+                    print(distance)
+                    if distance < 200.0 {
+                        print("123")
+//                        DispatchQueue.main.async {
+                            self.tellPleaseText(text: "Все отлично, автобус приехал")
+                            self.message = ""
+                            self.endTimer()
+//                        }
                     }
                 }
             }
