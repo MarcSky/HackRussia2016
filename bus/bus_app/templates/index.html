@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=tr_TR" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+				//$.ajax({async: false});
+
+				setInterval(function(x) {
+
+				$.getJSON('/api/bus/get/1', function (d) {
+
+					$.getJSON('/api/get_man_position', function (man) {
+
+					x = parseFloat(d[0]);
+					y = parseFloat(d[1]);
+
+					man_x = parseFloat(man[0]);
+					man_y = parseFloat(man[1]);
+
+					function init(){
+            myMap = new ymaps.Map("map", {
+                center: [x,y],
+                zoom: 14
+            });
+
+            myPlacemark = new ymaps.Placemark([x, y], {
+                hintContent: 'Автобус',
+                balloonContent: 'Автобус'
+            });
+
+						myPlacemarkMan = new ymaps.Placemark([man_x, man_y], {
+                hintContent: 'Пассажир',
+                balloonContent: 'Пассажир'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+						myMap.geoObjects.add(myPlacemarkMan);
+
+        }
+				$("#map").html('');
+				ymaps.ready(init);
+				var myMap,
+						myPlacemark;
+
+})
+
+			})
+ }, 2000)
+    </script>
+</head>
+
+<body>
+    <div id="map" style="width: 1000px; height: 600px"></div>
+</body>
+
+</html>

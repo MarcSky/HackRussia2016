@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0F5B681F1DE1039F0011A162 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5B681E1DE1039F0011A162 /* AVFoundation.framework */; };
 		0F5B68241DE10D1E0011A162 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5B68231DE10D1E0011A162 /* CoreLocation.framework */; };
-		0F5B68261DE110B90011A162 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B68251DE110B80011A162 /* Speaker.swift */; };
 		0F5B68281DE123BB0011A162 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5B68271DE123BA0011A162 /* Speech.framework */; };
 		466FED4C908AA92010A91C7D /* Pods_Siri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06438D4EEF3A8CBE69E80385 /* Pods_Siri.framework */; };
 		805027EB1D389E5700CE3F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805027EA1D389E5700CE3F1F /* AppDelegate.swift */; };
@@ -24,7 +23,6 @@
 		0831A094F886020250D8A526 /* Pods-Siri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Siri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Siri/Pods-Siri.debug.xcconfig"; sourceTree = "<group>"; };
 		0F5B681E1DE1039F0011A162 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0F5B68231DE10D1E0011A162 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0F5B68251DE110B80011A162 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		0F5B68271DE123BA0011A162 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		0F8E2C341DE1021000CFE4CF /* Siri.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Siri.entitlements; sourceTree = "<group>"; };
 		27B37E883C5FB3C6D85136C2 /* Pods-Siri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Siri.release.xcconfig"; path = "Pods/Target Support Files/Pods-Siri/Pods-Siri.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 				805027F11D389E5700CE3F1F /* Assets.xcassets */,
 				805027F31D389E5700CE3F1F /* LaunchScreen.storyboard */,
 				805027F61D389E5700CE3F1F /* Info.plist */,
-				0F5B68251DE110B80011A162 /* Speaker.swift */,
 			);
 			path = Siri;
 			sourceTree = "<group>";
@@ -241,7 +238,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F5B68261DE110B90011A162 /* Speaker.swift in Sources */,
 				805027ED1D389E5700CE3F1F /* ViewController.swift in Sources */,
 				805027EB1D389E5700CE3F1F /* AppDelegate.swift in Sources */,
 			);
